@@ -188,28 +188,36 @@ namespace EximLogAnalyzer
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _currentLogStream = new MemoryStream();
-            SftpClient sftpClient = new SftpClient(hostnameTextBox.Text, loginTextBox.Text, passwordTextBox.Text);
-            sftpClient.Connect();
-            sftpClient.DownloadFile(string.Format("/var/log/exim4/{0}", logFilesComboBox.Text), _currentLogStream);
-            _currentLogStream.Seek(0, SeekOrigin.Begin);
-            MemoryStream decompressedStream;
-            if (logFilesComboBox.Text.Contains(".gz"))
+            try
             {
-                decompressedStream = DecompressStream(_currentLogStream);
-                _currentLogStream = decompressedStream;
-                _logParser.ParseEximMainLog(decompressedStream);
+                _currentLogStream = new MemoryStream();
+                string logPath = logPathTextBox.Text.TrimEnd('/');
+                SftpClient sftpClient = new SftpClient(hostnameTextBox.Text, loginTextBox.Text, passwordTextBox.Text);
+                sftpClient.Connect();
+                sftpClient.DownloadFile(string.Format("{0}/{1}", logPath, logFilesComboBox.Text), _currentLogStream);
+                _currentLogStream.Seek(0, SeekOrigin.Begin);
+                MemoryStream decompressedStream;
+                if (logFilesComboBox.Text.Contains(".gz"))
+                {
+                    decompressedStream = DecompressStream(_currentLogStream);
+                    _currentLogStream = decompressedStream;
+                    _logParser.ParseEximMainLog(decompressedStream);
+                }
+                else
+                {
+                    _logParser.ParseEximMainLog(_currentLogStream);
+                }
+                DisplayResult();
+                DisplayMailBoxIsFull();
+                DisplayNotParsedLines();
+                DisplayBounceMessages();
+                DisplayDovecotLoginAuthenticatorFailed();
+                DisplayDeliveryDeferredMessages();
             }
-            else
+            catch (Exception ex)
             {
-                _logParser.ParseEximMainLog(_currentLogStream);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            DisplayResult();
-            DisplayMailBoxIsFull();
-            DisplayNotParsedLines();
-            DisplayBounceMessages();
-            DisplayDovecotLoginAuthenticatorFailed();
-            DisplayDeliveryDeferredMessages();
         }
 
         private MemoryStream DecompressStream(Stream inputStream)
