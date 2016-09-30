@@ -10,8 +10,8 @@ namespace EximLogAnalyzer
 {
     public class LogParser
     {
-        public List<string> BounceMessages = new List<string>();
         private int _currentLogLineNumber;
+        public List<string> BounceMessages = new List<string>();
         public List<string> DeliveryDeferred = new List<string>();
         public List<string> DovecotAuthenticatorFailed = new List<string>();
         public List<string> IdentConnection = new List<string>();
@@ -19,26 +19,27 @@ namespace EximLogAnalyzer
         public List<string> MessageIsFrozen = new List<string>();
         public List<string> NotFullTransaction = new List<string>();
         public List<string> NotParsedLogLines = new List<string>();
-        private Dictionary<int, int> _parsedLogLines = new Dictionary<int, int>();
-        public Dictionary<string, Mail> ResultDict = new Dictionary<string, Mail>();
         public List<string> RetryTimeNotReachedForAnyHost = new List<string>();
         public List<string> SorryWeAreNotOpenRelay = new List<string>();
         public List<string> TlsErrorOnConnection = new List<string>();
+        private Dictionary<int, int> _parsedLogLines = new Dictionary<int, int>();
+        public Dictionary<string, Mail> ResultDict = new Dictionary<string, Mail>();
 
         private void ClearResults()
         {
             BounceMessages.Clear();
+            DeliveryDeferred.Clear();
             DovecotAuthenticatorFailed.Clear();
             IdentConnection.Clear();
             MailBoxIsFull.Clear();
             MessageIsFrozen.Clear();
+            NotFullTransaction.Clear();
             NotParsedLogLines.Clear();
-            _parsedLogLines.Clear();
-            ResultDict.Clear();
             RetryTimeNotReachedForAnyHost.Clear();
             SorryWeAreNotOpenRelay.Clear();
             TlsErrorOnConnection.Clear();
-            NotFullTransaction.Clear();
+            _parsedLogLines.Clear();
+            ResultDict.Clear();
         }
 
         public void ParseEximMainLog(Stream inputStream)
