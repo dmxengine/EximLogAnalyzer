@@ -177,11 +177,18 @@ namespace EximLogAnalyzer
             logFilesComboBox.Items.Clear();
             if (_sshClient != null && _sshClient.IsConnected)
             {
-                SshCommand sshCommand = _sshClient.CreateCommand(string.Format("ls {0}", path));
-                List<string> result = sshCommand.Execute().Split().ToList();
-                foreach (string item in result)
+                try
                 {
-                    logFilesComboBox.Items.Add(item);
+                    SshCommand sshCommand = _sshClient.CreateCommand(string.Format("ls {0}", path));
+                    List<string> result = sshCommand.Execute().Split().ToList();
+                    foreach (string item in result)
+                    {
+                        logFilesComboBox.Items.Add(item);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -279,7 +286,14 @@ namespace EximLogAnalyzer
             _config.Login = loginTextBox.Text;
             _config.Password = passwordTextBox.Text;
             _config.LogPath = logPathTextBox.Text;
-            Config.SaveConfig(_config, "Config.xml");
+            try
+            {
+                Config.SaveConfig(_config, "Config.xml");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
