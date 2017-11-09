@@ -21,6 +21,7 @@ namespace EximLogAnalyzer
         public MainForm()
         {
             InitializeComponent();
+            YandexMetricaFolder.SetCurrent("");
             YandexMetrica.Activate("eafbf946-7082-4f83-aef3-6e99c1911a62");
             AppDomain.CurrentDomain.UnhandledException += Application_ThreadException;
         }
