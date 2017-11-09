@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("DmxEngine")]
 [assembly: AssemblyProduct("EximLogAnalyzer")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -31,5 +31,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.2016.0928")]
-[assembly: AssemblyFileVersion("1.0.2016.0928")]
+[assembly: AssemblyVersion("1.0.2017.1109")]
+[assembly: AssemblyFileVersion("1.0.2017.1109")]
