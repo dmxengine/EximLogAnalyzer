@@ -1,2 +1,14 @@
 before_build:
   - nuget restore
+
+install:
+  - cinst InnoSetup
+
+after_build:
+  - cmd: BuildInstaller.bat
+  
+artifacts:
+  - path: \Bin\Setup.exe
+  
+configuration:
+  - Release
