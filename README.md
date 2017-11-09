@@ -1,3 +1,4 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/6bm79qrkmsfd4g7l?svg=true)](https://ci.appveyor.com/project/dmxengine/eximloganalyzer)
 # Exim Log Analyzer (log parser)
 
 This tool help you quickly tell what going on your mail server. Who and when sended or receive mail, delivery status, errors etc.
