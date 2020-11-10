@@ -61,6 +61,8 @@
             this.loginTextBox = new System.Windows.Forms.TextBox();
             this.hostnameLabel = new System.Windows.Forms.Label();
             this.hostnameTextBox = new System.Windows.Forms.TextBox();
+            this.portTextBox = new System.Windows.Forms.TextBox();
+            this.portLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.mailsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridGroupingControl1)).BeginInit();
@@ -89,7 +91,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1000, 439);
-            this.tabControl1.TabIndex = 7;
+            this.tabControl1.TabIndex = 9;
             // 
             // mailsTabPage
             // 
@@ -279,15 +281,15 @@
             this.logFilesComboBox.Location = new System.Drawing.Point(703, 24);
             this.logFilesComboBox.Name = "logFilesComboBox";
             this.logFilesComboBox.Size = new System.Drawing.Size(206, 21);
-            this.logFilesComboBox.TabIndex = 5;
+            this.logFilesComboBox.TabIndex = 7;
             this.logFilesComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // connectButton
             // 
-            this.connectButton.Location = new System.Drawing.Point(327, 25);
+            this.connectButton.Location = new System.Drawing.Point(391, 25);
             this.connectButton.Name = "connectButton";
             this.connectButton.Size = new System.Drawing.Size(100, 21);
-            this.connectButton.TabIndex = 4;
+            this.connectButton.TabIndex = 5;
             this.connectButton.Text = "Connect";
             this.connectButton.UseVisualStyleBackColor = true;
             this.connectButton.Click += new System.EventHandler(this.connectButton_Click);
@@ -298,7 +300,7 @@
             this.refreshButton.Location = new System.Drawing.Point(915, 24);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(75, 21);
-            this.refreshButton.TabIndex = 6;
+            this.refreshButton.TabIndex = 8;
             this.refreshButton.Text = "Refresh";
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
@@ -311,6 +313,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.portLabel);
+            this.groupBox1.Controls.Add(this.portTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.logPathLabel);
             this.groupBox1.Controls.Add(this.logPathTextBox);
@@ -341,7 +345,7 @@
             // logPathLabel
             // 
             this.logPathLabel.AutoSize = true;
-            this.logPathLabel.Location = new System.Drawing.Point(430, 9);
+            this.logPathLabel.Location = new System.Drawing.Point(494, 9);
             this.logPathLabel.Name = "logPathLabel";
             this.logPathLabel.Size = new System.Drawing.Size(53, 13);
             this.logPathLabel.TabIndex = 8;
@@ -349,15 +353,15 @@
             // 
             // logPathTextBox
             // 
-            this.logPathTextBox.Location = new System.Drawing.Point(433, 25);
+            this.logPathTextBox.Location = new System.Drawing.Point(497, 25);
             this.logPathTextBox.Name = "logPathTextBox";
-            this.logPathTextBox.Size = new System.Drawing.Size(264, 20);
-            this.logPathTextBox.TabIndex = 7;
+            this.logPathTextBox.Size = new System.Drawing.Size(200, 20);
+            this.logPathTextBox.TabIndex = 6;
             // 
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Location = new System.Drawing.Point(218, 9);
+            this.passwordLabel.Location = new System.Drawing.Point(282, 9);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(56, 13);
             this.passwordLabel.TabIndex = 5;
@@ -365,16 +369,16 @@
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(221, 25);
+            this.passwordTextBox.Location = new System.Drawing.Point(285, 25);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
-            this.passwordTextBox.TabIndex = 3;
+            this.passwordTextBox.TabIndex = 4;
             this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // loginLabel
             // 
             this.loginLabel.AutoSize = true;
-            this.loginLabel.Location = new System.Drawing.Point(112, 9);
+            this.loginLabel.Location = new System.Drawing.Point(176, 9);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(36, 13);
             this.loginLabel.TabIndex = 3;
@@ -382,10 +386,10 @@
             // 
             // loginTextBox
             // 
-            this.loginTextBox.Location = new System.Drawing.Point(115, 25);
+            this.loginTextBox.Location = new System.Drawing.Point(179, 25);
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(100, 20);
-            this.loginTextBox.TabIndex = 2;
+            this.loginTextBox.TabIndex = 3;
             // 
             // hostnameLabel
             // 
@@ -403,6 +407,22 @@
             this.hostnameTextBox.Size = new System.Drawing.Size(100, 20);
             this.hostnameTextBox.TabIndex = 1;
             // 
+            // portTextBox
+            // 
+            this.portTextBox.Location = new System.Drawing.Point(115, 25);
+            this.portTextBox.Name = "portTextBox";
+            this.portTextBox.Size = new System.Drawing.Size(58, 20);
+            this.portTextBox.TabIndex = 2;
+            // 
+            // portLabel
+            // 
+            this.portLabel.AutoSize = true;
+            this.portLabel.Location = new System.Drawing.Point(112, 8);
+            this.portLabel.Name = "portLabel";
+            this.portLabel.Size = new System.Drawing.Size(29, 13);
+            this.portLabel.TabIndex = 11;
+            this.portLabel.Text = "Port:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,7 +432,7 @@
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "DmxEngine EximLogAnalyzer v1.0.20171109";
+            this.Text = "DmxEngine EximLogAnalyzer v1.0.20201109";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
@@ -463,6 +483,8 @@
         private System.Windows.Forms.TextBox logPathTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label logPathLabel;
+        private System.Windows.Forms.Label portLabel;
+        private System.Windows.Forms.TextBox portTextBox;
     }
 }
 

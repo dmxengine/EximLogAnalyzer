@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -18,12 +19,15 @@ namespace EximLogAnalyzer
         private LogParser _logParser = new LogParser();
         private Config _config;
 
+        private Color defaultColor;
+
         public MainForm()
         {
             InitializeComponent();
             YandexMetricaFolder.SetCurrent("");
             YandexMetrica.Activate("eafbf946-7082-4f83-aef3-6e99c1911a62");
             AppDomain.CurrentDomain.UnhandledException += Application_ThreadException;
+            defaultColor = hostnameTextBox.BackColor;
         }
 
         private void Application_ThreadException(object sender, UnhandledExceptionEventArgs e)
@@ -151,9 +155,56 @@ namespace EximLogAnalyzer
 
         private void connectButton_Click(object sender, EventArgs e)
         {
+            bool formInvalid = false;
+
+            if (string.IsNullOrWhiteSpace(hostnameTextBox.Text))
+            {
+                formInvalid = true;
+                hostnameTextBox.BackColor = Color.Pink;
+            }
+            else
+            {
+                hostnameTextBox.BackColor = defaultColor;
+            }
+
+            if (!int.TryParse(portTextBox.Text.Trim(), out int port))
+            {
+                formInvalid = true;
+                portTextBox.BackColor = Color.Pink;
+            }
+            else
+            {
+                portTextBox.BackColor = defaultColor;
+            }
+
+            if (string.IsNullOrWhiteSpace(loginTextBox.Text))
+            {
+                formInvalid = true;
+                loginTextBox.BackColor = Color.Pink;
+            }
+            else
+            {
+                loginTextBox.BackColor = defaultColor;
+            }
+
+            if (string.IsNullOrWhiteSpace(passwordTextBox.Text))
+            {
+                formInvalid = true;
+                passwordTextBox.BackColor = Color.Pink;
+            }
+            else
+            {
+                passwordTextBox.BackColor = defaultColor;
+            }
+
+            if (formInvalid)
+            {
+                return;
+            }
+
             if (_sshClient == null || _sshClient.IsConnected == false)
             {
-                _sshClient = new SshClient(hostnameTextBox.Text, loginTextBox.Text, passwordTextBox.Text);
+                _sshClient = new SshClient(hostnameTextBox.Text, port,loginTextBox.Text, passwordTextBox.Text);
                 try
                 {
                     _sshClient.Connect();

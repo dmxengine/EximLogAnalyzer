@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1267
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EximLogAnalyzer", "EximLogAnalyzer\EximLogAnalyzer.csproj", "{4B1A24BE-9CC1-4AB5-9E53-9F9D8F3C366A}"
 EndProject
