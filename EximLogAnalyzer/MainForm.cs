@@ -32,9 +32,9 @@ namespace EximLogAnalyzer
 
         private void Application_ThreadException(object sender, UnhandledExceptionEventArgs e)
         {
-            Exception ex = (Exception) e.ExceptionObject;
+            Exception ex = (Exception)e.ExceptionObject;
             YandexMetrica.ReportError(ex.Message, ex);
-            MessageBox.Show(ex.StackTrace,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            MessageBox.Show(ex.StackTrace, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void DisplayResult()
@@ -145,7 +145,7 @@ namespace EximLogAnalyzer
                 while (!sr.EndOfStream)
                 {
                     string logLine = sr.ReadLine();
-                    if (logLine!=null && logLine.Contains(textBox1.Text))
+                    if (logLine != null && logLine.Contains(textBox1.Text))
                     {
                         findInCurrentLogRichTextBox.AppendText(logLine + "\r\n\r\n");
                     }
@@ -204,7 +204,7 @@ namespace EximLogAnalyzer
 
             if (_sshClient == null || _sshClient.IsConnected == false)
             {
-                _sshClient = new SshClient(hostnameTextBox.Text, port,loginTextBox.Text, passwordTextBox.Text);
+                _sshClient = new SshClient(hostnameTextBox.Text, port, loginTextBox.Text, passwordTextBox.Text);
                 try
                 {
                     _sshClient.Connect();
@@ -341,6 +341,33 @@ namespace EximLogAnalyzer
             try
             {
                 Config.SaveConfig(_config, "Config.xml");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(openFileDialog1.FileName))
+                    {
+                        using (FileStream logFileStream = File.Open(openFileDialog1.FileName, FileMode.Open))
+                        {
+                            _logParser.ParseEximMainLog(logFileStream);
+                            DisplayResult();
+                            DisplayMailBoxIsFull();
+                            DisplayNotParsedLines();
+                            DisplayBounceMessages();
+                            DisplayDovecotLoginAuthenticatorFailed();
+                            DisplayDeliveryDeferredMessages();
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {

@@ -39,6 +39,7 @@ namespace EximLogAnalyzer
             SorryWeAreNotOpenRelay.Clear();
             TlsErrorOnConnection.Clear();
             _parsedLogLines.Clear();
+            _currentLogLineNumber = 0;
             ResultDict.Clear();
         }
 

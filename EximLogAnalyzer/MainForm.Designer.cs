@@ -52,6 +52,8 @@
             this.refreshButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.portLabel = new System.Windows.Forms.Label();
+            this.portTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.logPathLabel = new System.Windows.Forms.Label();
             this.logPathTextBox = new System.Windows.Forms.TextBox();
@@ -61,8 +63,10 @@
             this.loginTextBox = new System.Windows.Forms.TextBox();
             this.hostnameLabel = new System.Windows.Forms.Label();
             this.hostnameTextBox = new System.Windows.Forms.TextBox();
-            this.portTextBox = new System.Windows.Forms.TextBox();
-            this.portLabel = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.openLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.mailsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridGroupingControl1)).BeginInit();
@@ -73,6 +77,7 @@
             this.dovecotAuthenticatorFailedTabPage.SuspendLayout();
             this.deliveryDeferredTabPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -87,10 +92,10 @@
             this.tabControl1.Controls.Add(this.bouncedMessagesTabPage);
             this.tabControl1.Controls.Add(this.dovecotAuthenticatorFailedTabPage);
             this.tabControl1.Controls.Add(this.deliveryDeferredTabPage);
-            this.tabControl1.Location = new System.Drawing.Point(13, 75);
+            this.tabControl1.Location = new System.Drawing.Point(13, 86);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1000, 439);
+            this.tabControl1.Size = new System.Drawing.Size(1000, 428);
             this.tabControl1.TabIndex = 9;
             // 
             // mailsTabPage
@@ -98,7 +103,7 @@
             this.mailsTabPage.Controls.Add(this.gridGroupingControl1);
             this.mailsTabPage.Location = new System.Drawing.Point(4, 22);
             this.mailsTabPage.Name = "mailsTabPage";
-            this.mailsTabPage.Size = new System.Drawing.Size(992, 413);
+            this.mailsTabPage.Size = new System.Drawing.Size(992, 402);
             this.mailsTabPage.TabIndex = 3;
             this.mailsTabPage.Text = "Mails";
             this.mailsTabPage.UseVisualStyleBackColor = true;
@@ -117,7 +122,7 @@
             this.gridGroupingControl1.Name = "gridGroupingControl1";
             this.gridGroupingControl1.Office2007ScrollBars = true;
             this.gridGroupingControl1.ShowGroupDropArea = true;
-            this.gridGroupingControl1.Size = new System.Drawing.Size(984, 405);
+            this.gridGroupingControl1.Size = new System.Drawing.Size(984, 394);
             this.gridGroupingControl1.TabIndex = 0;
             this.gridGroupingControl1.Text = "gridGroupingControl1";
             this.gridGroupingControl1.VersionInfo = "13.4460.0.53";
@@ -129,7 +134,7 @@
             this.findInLogTabPage.Controls.Add(this.findInCurrentLogRichTextBox);
             this.findInLogTabPage.Location = new System.Drawing.Point(4, 22);
             this.findInLogTabPage.Name = "findInLogTabPage";
-            this.findInLogTabPage.Size = new System.Drawing.Size(992, 413);
+            this.findInLogTabPage.Size = new System.Drawing.Size(992, 402);
             this.findInLogTabPage.TabIndex = 2;
             this.findInLogTabPage.Text = "Find In Log";
             this.findInLogTabPage.UseVisualStyleBackColor = true;
@@ -168,7 +173,7 @@
             this.mailBoxIsFullTabPage.Controls.Add(this.mailBoxIsFullRichTextBox);
             this.mailBoxIsFullTabPage.Location = new System.Drawing.Point(4, 22);
             this.mailBoxIsFullTabPage.Name = "mailBoxIsFullTabPage";
-            this.mailBoxIsFullTabPage.Size = new System.Drawing.Size(992, 413);
+            this.mailBoxIsFullTabPage.Size = new System.Drawing.Size(992, 402);
             this.mailBoxIsFullTabPage.TabIndex = 4;
             this.mailBoxIsFullTabPage.Text = "Mailbox Is Full";
             this.mailBoxIsFullTabPage.UseVisualStyleBackColor = true;
@@ -191,7 +196,7 @@
             this.NotParsedLogLinesTabPage.Location = new System.Drawing.Point(4, 22);
             this.NotParsedLogLinesTabPage.Name = "NotParsedLogLinesTabPage";
             this.NotParsedLogLinesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.NotParsedLogLinesTabPage.Size = new System.Drawing.Size(992, 413);
+            this.NotParsedLogLinesTabPage.Size = new System.Drawing.Size(992, 402);
             this.NotParsedLogLinesTabPage.TabIndex = 1;
             this.NotParsedLogLinesTabPage.Text = "Not Parsed Log Lines";
             this.NotParsedLogLinesTabPage.UseVisualStyleBackColor = true;
@@ -214,7 +219,7 @@
             this.bouncedMessagesTabPage.Location = new System.Drawing.Point(4, 22);
             this.bouncedMessagesTabPage.Name = "bouncedMessagesTabPage";
             this.bouncedMessagesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.bouncedMessagesTabPage.Size = new System.Drawing.Size(992, 413);
+            this.bouncedMessagesTabPage.Size = new System.Drawing.Size(992, 402);
             this.bouncedMessagesTabPage.TabIndex = 0;
             this.bouncedMessagesTabPage.Text = "Bounced Messages";
             this.bouncedMessagesTabPage.UseVisualStyleBackColor = true;
@@ -236,7 +241,7 @@
             this.dovecotAuthenticatorFailedTabPage.Controls.Add(this.richTextBox2);
             this.dovecotAuthenticatorFailedTabPage.Location = new System.Drawing.Point(4, 22);
             this.dovecotAuthenticatorFailedTabPage.Name = "dovecotAuthenticatorFailedTabPage";
-            this.dovecotAuthenticatorFailedTabPage.Size = new System.Drawing.Size(992, 413);
+            this.dovecotAuthenticatorFailedTabPage.Size = new System.Drawing.Size(992, 402);
             this.dovecotAuthenticatorFailedTabPage.TabIndex = 5;
             this.dovecotAuthenticatorFailedTabPage.Text = "Dovecot Authenticator Failed";
             this.dovecotAuthenticatorFailedTabPage.UseVisualStyleBackColor = true;
@@ -258,7 +263,7 @@
             this.deliveryDeferredTabPage.Controls.Add(this.DeliveryDeferredRichTextBox);
             this.deliveryDeferredTabPage.Location = new System.Drawing.Point(4, 22);
             this.deliveryDeferredTabPage.Name = "deliveryDeferredTabPage";
-            this.deliveryDeferredTabPage.Size = new System.Drawing.Size(992, 413);
+            this.deliveryDeferredTabPage.Size = new System.Drawing.Size(992, 402);
             this.deliveryDeferredTabPage.TabIndex = 6;
             this.deliveryDeferredTabPage.Text = "Delivery Deferred";
             this.deliveryDeferredTabPage.UseVisualStyleBackColor = true;
@@ -327,11 +332,27 @@
             this.groupBox1.Controls.Add(this.loginTextBox);
             this.groupBox1.Controls.Add(this.hostnameLabel);
             this.groupBox1.Controls.Add(this.hostnameTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(12, 11);
+            this.groupBox1.Location = new System.Drawing.Point(13, 22);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(997, 58);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
+            // 
+            // portLabel
+            // 
+            this.portLabel.AutoSize = true;
+            this.portLabel.Location = new System.Drawing.Point(112, 8);
+            this.portLabel.Name = "portLabel";
+            this.portLabel.Size = new System.Drawing.Size(29, 13);
+            this.portLabel.TabIndex = 11;
+            this.portLabel.Text = "Port:";
+            // 
+            // portTextBox
+            // 
+            this.portTextBox.Location = new System.Drawing.Point(115, 25);
+            this.portTextBox.Name = "portTextBox";
+            this.portTextBox.Size = new System.Drawing.Size(58, 20);
+            this.portTextBox.TabIndex = 2;
             // 
             // label1
             // 
@@ -407,21 +428,30 @@
             this.hostnameTextBox.Size = new System.Drawing.Size(100, 20);
             this.hostnameTextBox.TabIndex = 1;
             // 
-            // portTextBox
+            // menuStrip1
             // 
-            this.portTextBox.Location = new System.Drawing.Point(115, 25);
-            this.portTextBox.Name = "portTextBox";
-            this.portTextBox.Size = new System.Drawing.Size(58, 20);
-            this.portTextBox.TabIndex = 2;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openLogFileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1025, 24);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // portLabel
+            // openLogFileToolStripMenuItem
             // 
-            this.portLabel.AutoSize = true;
-            this.portLabel.Location = new System.Drawing.Point(112, 8);
-            this.portLabel.Name = "portLabel";
-            this.portLabel.Size = new System.Drawing.Size(29, 13);
-            this.portLabel.TabIndex = 11;
-            this.portLabel.Text = "Port:";
+            this.openLogFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem});
+            this.openLogFileToolStripMenuItem.Name = "openLogFileToolStripMenuItem";
+            this.openLogFileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.openLogFileToolStripMenuItem.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.openToolStripMenuItem.Text = "Open...";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -430,9 +460,11 @@
             this.ClientSize = new System.Drawing.Size(1025, 526);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "DmxEngine EximLogAnalyzer v1.0.20201109";
+            this.Text = "DmxEngine EximLogAnalyzer v1.0.20220203";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl1.ResumeLayout(false);
@@ -447,7 +479,10 @@
             this.deliveryDeferredTabPage.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -485,6 +520,10 @@
         private System.Windows.Forms.Label logPathLabel;
         private System.Windows.Forms.Label portLabel;
         private System.Windows.Forms.TextBox portTextBox;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem openLogFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

@@ -1,1 +1,1 @@
-"C:\Program Files (x86)\Inno Setup 5\Compil32.exe" /cc "%APPVEYOR_BUILD_FOLDER%\EximLogAnalyzer\InnoSetupBuildScript.iss"
+"C:\Program Files (x86)\Inno Setup 6\Compil32.exe" /cc "%APPVEYOR_BUILD_FOLDER%\EximLogAnalyzer\InnoSetupBuildScript.iss"

@@ -7,8 +7,8 @@
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{ED2B9A47-372F-47D9-8998-3C36BC7FAF78}
 AppName=Exim Log Analyzer
-AppVersion=1.0.16.0930
-;AppVerName=Exim Log Analyzer 1.0.16.0930
+AppVersion=1.0.22.0203
+;AppVerName=Exim Log Analyzer 1.0.22.0203
 AppPublisher=Dmxengine, Inc.
 AppPublisherURL=http://www.dmxengine.com/
 AppSupportURL=http://www.dmxengine.com/
